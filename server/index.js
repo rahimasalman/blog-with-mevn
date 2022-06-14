@@ -24,5 +24,5 @@ app.listen(process.env.PORT, () => {
       useUnifiedTopology: true,
    })
       .then(console.log(`Server is running on port ${process.env.PORT}`)
-      .catch(err => console.log(err)));
-})
+         .catch(err => console.log(err)));
+});
