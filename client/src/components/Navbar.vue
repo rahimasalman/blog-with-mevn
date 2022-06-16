@@ -36,8 +36,8 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <router-link to="/create" class="button is-primary is-light">
-              <strong>Create</strong>
+            <router-link to="/create" class="button is-success">
+              <strong>+ Create</strong>
             </router-link>
           </div>
         </div>

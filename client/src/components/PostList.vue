@@ -1,34 +1,54 @@
 <template>
-  <div class="card">
-    <div class="card-content">
-      <div class="media">
-        <div class="media-left">
-          <figure class="image is-48x48">
-            <img
-              src="https://bulma.io/images/placeholders/96x96.png"
-              alt="Placeholder image"
-            />
-          </figure>
+  <div class="container">
+    <div v-for="post in posts" :key="post._id" class="card my-5">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-content">
+            <p class="title is-3">{{ post.title }}</p>
+          </div>
         </div>
-        <div class="media-content">
-          <p class="title is-4">John Smith</p>
-          <p class="subtitle is-6">@johnsmith</p>
-        </div>
-      </div>
 
-      <div class="content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec
-        iaculis mauris. <a>@bulmaio</a>. <a href="#">#css</a>
-        <a href="#">#responsive</a>
-        <br />
-        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+        <div class="content is-3">
+          {{ post.content }}
+          <p></p>
+          <strong>Creator: {{ post.creator }}</strong>
+          <p>{{ post.email }}</p>
+        </div>
       </div>
+      <footer class="buttons ml-5">
+        <button class="button is-link has-text-white">Edit</button>
+        <button class="button has-background-danger has-text-white">
+          Delete
+        </button>
+      </footer>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { onMounted, ref } from "vue";
+
+export default {
+  setup() {
+    const posts = ref([]);
+    const API_URL = "http://localhost:5000/posts";
+    onMounted(() => {
+      getPosts();
+    });
+    async function getPosts() {
+      try {
+        const response = await fetch(API_URL);
+        const json = await response.json();
+        posts.value = json;
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    return {
+      posts,
+    };
+  },
+};
 </script>
 
 <style></style>
