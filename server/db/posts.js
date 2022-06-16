@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import "mongoose-type-email";
 
 const postSchema = new mongoose.Schema({
    title: {
@@ -13,6 +14,11 @@ const postSchema = new mongoose.Schema({
       type: String,
       required: true,
    },
+   email: {
+      type: String,
+      unique: true,
+      required: true,
+   }
 });
 
 const Post = mongoose.model("post", postSchema);

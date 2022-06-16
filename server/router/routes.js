@@ -39,10 +39,10 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
    try {
       const { id } = req.params;
-      const { title, content, creator } = req.body;
+      const { title, content, creator, email } = req.body;
       if (!mongoose.Types.ObjectId.isValid(id))
          return res.status(400).send('Post can not be found');
-      const updatedPost = { title, content, creator, _id: id };
+      const updatedPost = { title, content, creator, email, _id: id };
       await Post.findByIdAndUpdate(id, updatedPost, { new: true });
       res.json(updatedPost);
    } catch (error) {
