@@ -1,11 +1,15 @@
 <template>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <nav
+    class="navbar has-background-grey-darker"
+    role="navigation"
+    aria-label="main navigation"
+  >
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
+      <a class="navbar-item" href="https://vuejs.org/">
         <img
-          src="https://bulma.io/images/bulma-logo.png"
-          width="112"
-          height="28"
+          src="https://miro.medium.com/max/800/1*Pk2mZo1cBqfVqQi-mtAkuA.png"
+          width="40"
+          height="60"
         />
       </a>
 
@@ -24,30 +28,17 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item"> Home </a>
-
-        <a class="navbar-item"> Documentation </a>
-
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link"> More </a>
-
-          <div class="navbar-dropdown">
-            <a class="navbar-item"> About </a>
-            <a class="navbar-item"> Jobs </a>
-            <a class="navbar-item"> Contact </a>
-            <hr class="navbar-divider" />
-            <a class="navbar-item"> Report an issue </a>
-          </div>
-        </div>
+        <strong class="navbar-item has-text-white-bis">
+          Vue.js CRUD API
+        </strong>
       </div>
 
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-primary">
-              <strong>Sign up</strong>
-            </a>
-            <a class="button is-light"> Log in </a>
+            <router-link to="/create" class="button is-primary is-light">
+              <strong>Create</strong>
+            </router-link>
           </div>
         </div>
       </div>
@@ -57,4 +48,4 @@
 <script>
 export default {};
 </script>
-<style></style>
+<style lang="scss"></style>
