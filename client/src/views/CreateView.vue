@@ -35,7 +35,9 @@ export default {
         });
         //eslint-disable-next-line no-unused-vars
         const json = await response.json();
-        router.push("/");
+        router.push({
+          name: "home",
+        });
       } catch (error) {
         console.log(error);
       }
