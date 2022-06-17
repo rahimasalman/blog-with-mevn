@@ -17,7 +17,10 @@
       </div>
       <footer class="buttons ml-5">
         <button class="button is-link has-text-white">Edit</button>
-        <button class="button has-background-danger has-text-white">
+        <button
+          @click="removePost(post._id)"
+          class="ml-2 button has-background-danger has-text-white"
+        >
           Delete
         </button>
       </footer>
@@ -44,8 +47,16 @@ export default {
         console.log(error);
       }
     }
+    async function removePost(_id) {
+      //eslint-disable-next-line no-unused-vars
+      const response = await fetch(`${API_URL}/${_id}`, {
+        method: "DELETE",
+      });
+      getPosts();
+    }
     return {
       posts,
+      removePost,
     };
   },
 };
