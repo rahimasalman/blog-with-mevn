@@ -16,7 +16,12 @@
         </div>
       </div>
       <footer class="buttons ml-5">
-        <button class="button is-link has-text-white">Edit</button>
+        <button
+          @click="editPost(post._id)"
+          class="button is-link has-text-white"
+        >
+          Edit
+        </button>
         <button
           @click="removePost(post._id)"
           class="ml-2 button has-background-danger has-text-white"
@@ -30,11 +35,14 @@
 
 <script>
 import { onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
 
 export default {
   setup() {
     const posts = ref([]);
     const API_URL = "http://localhost:5000/posts";
+    const router = useRouter();
+
     onMounted(() => {
       getPosts();
     });
@@ -54,9 +62,18 @@ export default {
       });
       getPosts();
     }
+    async function editPost(_id) {
+      router.push({
+        name: "update",
+        params: {
+          id: _id,
+        },
+      });
+    }
     return {
       posts,
       removePost,
+      editPost,
     };
   },
 };
