@@ -1,0 +1,19 @@
+{
+  "name": "blog-with-mevn",
+  "version": "1.0.0",
+  "description": "<h2>Pictures from project:</h2>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rahimasalman/blog-with-mevn.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rahimasalman/blog-with-mevn/issues"
+  },
+  "homepage": "https://github.com/rahimasalman/blog-with-mevn#readme"
+}
